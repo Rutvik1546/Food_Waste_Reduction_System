@@ -1,7 +1,8 @@
 <?php
 // app/controllers/AuthController.php
 require_once __DIR__ . '/../core/Controller.php';
-require_once __DIR__ . '/../../core/Connection.php'; // path from this file to core
+require_once __DIR__ . '/../../core/Connection.php';
+require_once __DIR__ . '/../../core/Config.php';
 require_once __DIR__ . '/../model/User.php';
 require_once __DIR__ . '/../../common/Utility.php';
 
@@ -32,7 +33,6 @@ class AuthController extends Controller
         $this->view('auth/resetPassword');
     }
 
-    // If you need to handle POST login submit, you could add:
     public function loginPostAction()
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['Login'])) {
@@ -154,7 +154,8 @@ class AuthController extends Controller
 
             
 
-            $reset_link = "http://localhost/FOOD_WASTE_REDUCTION_SYSTEM/index.php?controller=auth&action=reset";
+            $reset_link = Config::get('BASE_URL') . "index.php?controller=auth&action=reset";
+
             $email_sql = $conn->prepare("SELECT * from users where email=?");
             $email_sql->bind_param("s", $email);
             $email_sql->execute();
@@ -163,40 +164,37 @@ class AuthController extends Controller
 
             if ($email_result->num_rows > 0) {
                 $email_subject = "Password Reset Request - Local Food Waste Reduction System";
-                $email_message = "Dear, {$user_data['name']} We received a request to reset your password for your account on the Local Food Waste Reduction System.
+                $email_message = "
+                            <html>
+                            <head>
+                            <title>Password Reset Request</title>
+                            </head>
+                            <body>
+                            <div>
+                                <h3>Reset Your Password</h3>
+                                <p>Hi <strong>{$user_data['name']}</strong>,</p>
+                                <p>We received a request to reset your password for your account on the <strong>Local Food Waste Reduction System</strong>.</p>
+                                <a href='$reset_link&id={$user_data['id']}'>Reset Password</a>
+                                <p>If you didn’t request this, just ignore this email.</p>
+                                <p>– Food Waste Reduction Team</p>
+                            </div>
+                            </body>
+                            </html>
+                            ";
 
-If you made this request, please click the link below to reset your password:
-$reset_link&id={$user_data['id']}
-
-This link will be valid for the next 15 minutes. 
-If you did not request a password reset, please ignore this email — your password will remain unchanged.
-
-Thank you for being a part of our mission to reduce food waste and help the community.
-
-Warm regards,  
-The Local Food Waste Reduction System Team";
                 $email_headers = "From: rutvikmistry8642@gmail.com";
+                require_once __DIR__ . '/../core/Mailer.php';
 
-                if (mail($email, $email_subject, $email_message, $email_headers)) {
+                if (Mailer::send($email, $email_subject, $email_message)) {
                     Utility::setFlashMessage("success_message","Email Sent successfully!");
                     Utility::getFlashMessage("success_message",'index.php?controller=auth&action=login');
-
-                    // $_SESSION['message'] = "Email Sent successfully!";
-                    // header("Location:index.php?controller=auth&action=forgot");
-                    // exit;
                 } else {
                     Utility::setFlashMessage("error_message","Failed to send email!");
                     Utility::getFlashMessage("error_message");
-                    // $_SESSION['message'] = "Failed to send email!";
-                    // header("Location:index.php?controller=auth&action=forgot");
-                    // exit;
                 }
             } else {
                 Utility::setFlashMessage("error_message","Email not found! Please enter correct email!");
                 Utility::getFlashMessage("error_message");
-                // $_SESSION['message'] = "Email not found! Please enter correct email!";
-                // header("Location:index.php?controller=auth&action=forgot");
-                // exit;
             }
         }
     }
@@ -207,8 +205,6 @@ The Local Food Waste Reduction System Team";
         if (session_destroy()) {
             Utility::setFlashMessage("success_message","Logged out successfully!");
             Utility::getFlashMessage("success_message","index.php?controller=home&action=index");
-            // header("Location:index.php?controller=home&action=index");
-            // header("Refresh:0.01; url=index.php?controller=auth&action=login");
             exit;
         } else {
             Utility::setFlashMessage("error_message","Failed to log out!");
@@ -246,9 +242,6 @@ The Local Food Waste Reduction System Team";
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 Utility::setFlashMessage("error_message","Please enter valid email!");
                 Utility::getFlashMessage("error_message");
-                // $_SESSION['message'] = "Please enter valid email!";
-                // header("Location:index.php?controller=auth&action=updateUser&id=$id");
-                // exit;
             } elseif ($role === "Choose Role") {
                 Utility::setFlashMessage("error_message","Please select a valid role!");
                 Utility::getFlashMessage("error_message");
@@ -259,15 +252,10 @@ The Local Food Waste Reduction System Team";
                 if ($user) {
                     Utility::setFlashMessage("success_message","Data updated Successfully!");
                     Utility::getFlashMessage("success_message","index.php?controller=auth&action=displayUser");
-                    // $_SESSION['message'] = "Data updated succssfully!";
-                    // header("Location:index.php?controller=auth&action=displayUser");
                     exit;
                 } else {
                     Utility::setFlashMessage("error_message","Failed to update data!");
                     Utility::getFlashMessage("error_message");
-                    // $_SESSION['message'] = "Failed to update data!";
-                    // header("Location:index.php?controller=auth&action=displayUser");
-                    // exit;
                 }
             }
         }
