@@ -122,7 +122,7 @@ if(isset($_SESSION['role'])) {
 
 
 
-        /* @media (max-width: 480px) {
+        @media (max-width: 480px) {
             form {
                 padding: 30px 25px;
             }
@@ -142,7 +142,7 @@ if(isset($_SESSION['role'])) {
                 opacity: 1;
                 transform: scale(1);
             }
-        } */
+        } 
     </style>
 </head>
 
