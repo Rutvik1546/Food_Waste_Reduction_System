@@ -23,11 +23,6 @@ class ItemController extends Controller
         $this->view('items/displayItem');
     }
 
-    // ✅ NEW: avoids "Action not found!" error
-    // public function displayItemAction() {
-    //     $this->view('items/displayItem');
-    // }
-
     public function donatePostAction() {
     $current_date = date("Y-m-d");
     $itemModel = new Item();
@@ -79,7 +74,6 @@ class ItemController extends Controller
                 Utility::getFlashMessage('error_message');
             }
 
-            // Donor email
             $donor_subject = "Thank You for Donating Food!";
             $donor_message = "
                 <p>Hello Donor,</p>
@@ -121,8 +115,6 @@ class ItemController extends Controller
             if ($expire_date < $current_date) {
                 Utility::setFlashMessage("error_message","Expire date can't be earlier than today!");
                 Utility::getFlashMessage('error_message');
-                // header("Refresh:0.01;url=index.php?controller=item&action=updateDonate&id=$id");
-                // exit;
             }
 
             $food_update = $itemModel->updateItem($name, $quantity, $address, $expire_date, $id);
@@ -131,13 +123,9 @@ class ItemController extends Controller
             if ($food_update) {
                 Utility::setFlashMessage("success_message","Data Updated Successfully!");
                 Utility::getFlashMessage("success_message","index.php?controller=item&action=displayDonate");
-                // header("Location:index.php?controller=item&action=displayDonate");
-                // exit;
             } else {
                 Utility::setFlashMessage("error_message","Failed to update data!");
                 Utility::getFlashMessage('error_message');
-                // header("Location:index.php?controller=item&action=updateDonate&id=$id");
-                // exit;
             }
         }
     }
