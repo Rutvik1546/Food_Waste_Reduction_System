@@ -11,7 +11,6 @@ if (isset($_SESSION['role'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Waste Management System - Donate Food</title>
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -96,7 +95,6 @@ if (isset($_SESSION['role'])) {
             background-color: #3b7a1f;
         }
 
-        /* Search Section */
         .search-section {
             margin-top: 25px;
             text-align: center;
@@ -128,8 +126,6 @@ if (isset($_SESSION['role'])) {
         .search-section button:hover {
             background-color: #218838;
         }
-
-        /* My Donation Button */
         .donation-btn {
             display: inline-block;
             background-color: #218838;
@@ -188,12 +184,6 @@ if (isset($_SESSION['role'])) {
             <input type="submit" value="Donate Food" name="Donate">
         </form>
     </div>
-
-    <!-- <div class="search-section">
-        <h3>Search Item</h3>
-        <form method="GET" action="index.php?controller=auth&action=displayItem">
-            <input type="text" name="search" placeholder="Search by name">
-            <button type="submit">Search</button> -->
         </form>
 
         <a href="index.php?controller=item&action=displayDonate" class="donation-btn">My Donations</a>
@@ -209,12 +199,11 @@ if (isset($_SESSION['role'])) {
 <?php
     } else {
         Utility::setFlashMessage('error_message','Only donor can access!');
-        Utility::getFlashMessage('error_message');
-        // header("Location:../dashboard.php");
+        Utility::getFlashMessage('error_message');       
     }
 } else {
     Utility::setFlashMessage('error_message','Bad Request!');
     Utility::getFlashMessage('error_message');
-    // header("Location:../login.php");
 }
+
 ?>
