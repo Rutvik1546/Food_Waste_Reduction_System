@@ -16,8 +16,6 @@
       color: #333;
       line-height: 1.6;
     }
-
-    /* Navbar */
     header {
       background-color: rgba(255, 255, 255, 0.9);
       display: flex;
@@ -45,7 +43,6 @@
       color: #27ae60;
     }
 
-    /* Hero Section */
     .hero {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url('app/view/food_background.png') center/cover no-repeat;
@@ -88,7 +85,6 @@
       color: #2ecc71;
     }
 
-    /* How It Works Section */
     section {
       padding: 70px 20px;
       text-align: center;
@@ -121,7 +117,6 @@
       margin-bottom: 10px;
     }
 
-    /* Footer */
     footer {
       background-color: #2ecc71;
       color: white;
@@ -129,16 +124,10 @@
       padding: 15px 0;
     }
 
-    /* Responsive */
-    /* @media (max-width: 768px) {
-      .hero h2 { font-size: 30px; }
-      .steps { flex-direction: column; align-items: center; }
-    } */
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <header>
     <h1>Food Saver</h1>
     <nav>
@@ -147,7 +136,6 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <h2>Reduce Food Waste. Feed the Hungry.</h2>
     <p>Join our community and make a real difference by sharing surplus food with those who need it most.</p>
@@ -155,7 +143,6 @@
     <a href="index.php?controller=auth&action=register" class="btn btn-outline">Request Food</a>
   </section>
 
-  <!-- How It Works -->
   <section>
     <h3>How It Works</h3>
     <div class="steps">
@@ -174,10 +161,10 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Local Food Waste Reduction System | Made with  by Rutvik, Jaymin & Rudra</p>
   </footer>
 
 </body>
 </html>
+
