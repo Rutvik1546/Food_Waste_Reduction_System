@@ -9,7 +9,6 @@ include_once 'core/Connection.php';
     <title>Food Waste Management System - Login Page</title>
 
     <style>
-        /* Reset some default styles */
         * {
             margin: 0;
             padding: 0;
@@ -95,28 +94,7 @@ include_once 'core/Connection.php';
             text-decoration: underline;
         }
 
-        /* Responsive */
-        /* @media (max-width: 480px) {
-            form {
-                padding: 30px 25px;
-            }
-        } 
-         .containe{
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.8s ease-in-out;
-        } 
-         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1; 
-                transform: scale(1);
-            }
-        }   */
+        
     </style>
 </head>
 <body>
@@ -138,27 +116,3 @@ include_once 'core/Connection.php';
 </div>
 </body>
 </html>
-
-
-
-
-<!-- ----------------------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Waste Management System - Login Page</title>
-</head>
-<body>
-
-    <h1>Login Page</h1>
-    <form action="index.php?controller=auth&action=loginPost" method="post">
-        <label for="email">Email : </label><input type="email" name="email" id="email"><br/><br/>
-        <label for="password">Password : </label> <input type="password" name="password" id="password"><br/><br/>
-        <input type="submit" value="Login" name="Login"><br/><br/>
-        <p>Forgot Your Password ? No worry <a href="index.php?controller=auth&action=forgot">Click here</a></p>
-    </form>
-    <p>Don't have account? <a href="index.php?controller=auth&action=register">Register here</a></p>
-</body>
-</html>  -->
