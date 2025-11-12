@@ -13,8 +13,8 @@ class Mailer {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'rutvikmistry8642@gmail.com'; // your Gmail
-            $mail->Password   = 'aftefafrwyykgwxf'; // Gmail App password
+            $mail->Username   = 'rutvikmistry8642@gmail.com'; 
+            $mail->Password   = 'aftefafrwyykgwxf'; 
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
