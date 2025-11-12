@@ -26,7 +26,7 @@ $admin_food_row = $admin_food_result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Waste Management System - Update Food Item</title>
     <style>
-        /* Basic Reset */
+
         * {
             margin: 0;
             padding: 0;
@@ -195,22 +195,3 @@ $admin_food_row = $admin_food_result->fetch_assoc();
      <?php } ?>   
 </body>
 </html>
-
-
-
-
-
-<!-- <h1>Update Food Item Form</h1>
-<form action="index.php?controller=item&action=updatePost" method="post">
-    <input type="hidden" name="id" value="< ?= $row['id']; ?>">
-    <label for="name">Food Name : </label>
-    <input type="text" name="name" id="name" value="< ?= $row['name'];?>"><br/><br/>
-    <label for="quantity">Quantity : </label>
-    <input type="text" name="quantity" id="quanity" value="< ?= $row['quantity'];?>"><br/><br/>
-    <label for="address">Address : </label>
-    <textarea name="address" id="address" cols="30" rows="10">< ?= $row['address'];?></textarea><br/><br/>
-    <label for="expire_date">Expire Date : </label>
-    <input type="date" name="expire_date" id="expire_date" value="< ?= $row['expire_date'];?>"><br/><br/>
-    <input type="submit" value="Update Food" name="UpdateDonate">
-</form> 
- -->
