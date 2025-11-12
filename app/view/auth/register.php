@@ -13,7 +13,6 @@ if(isset($_SESSION['role'])) {
     <title>Food Waste Management System - Registration Page</title>
 
     <style>
-        /* Reset default browser styles */
         * {
             margin: 0;
             padding: 0;
@@ -182,33 +181,3 @@ if(isset($_SESSION['role'])) {
     </div>
 </body>
 </html>
-
-
-
-
-<!-- ------------------------------ -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Waste Management System - Registration Page</title>
-</head>
-<body>
-
-    <h1>Registration Page</h1>
-    <form action="index.php?controller=auth&action=registerPost" method="post">
-        <label for="name">Name : </label><input type="text" name="name" id="name" ><br/><br/>
-        <label for="email">Email : </label><input type="email" name="email" id="email"><br/><br/>
-        <label for="role">Role : </label>
-        <select name="role" id="role">
-            <option value="donor">Donor</option>
-            <option value="receiver">Receiver</option>
-        </select><br/><br/>
-        <label for="password">Password : </label><input type="password" name="password" id="password"><br/><br/>
-        <label for="cpassword">Confirm Password : </label><input type="password" name="cpassword" id="cpassword"><br/><br/>
-        <input type="submit" value="Register" name="Register">
-    </form>
-    <p>Already have account? <a href="index.php?controller=auth&action=login">Login here</a></p>
-</body>
-</html> -->
