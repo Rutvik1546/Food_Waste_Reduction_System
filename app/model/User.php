@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../../core/Connection.php';
-// require_once __DIR__ . '/../../common/Utility.php';
 
 Class User {
     private $conn;
@@ -30,3 +29,4 @@ Class User {
     }
 }
 ?>
+
