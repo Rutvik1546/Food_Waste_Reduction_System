@@ -4,7 +4,6 @@ require_once __DIR__.'/../../../core/Connection.php';
 $db = new Connection();
 $conn = $db->getConnection();
 
-// Handle search input
 $search = $_GET['search'] ?? '';
 
 $sql = "SELECT * FROM users";
@@ -180,3 +179,4 @@ $result = $conn->query($sql);
 
 </body>
 </html>
+
