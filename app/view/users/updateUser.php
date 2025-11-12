@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__.'/../../../core/Connection.php';
-// include_once '../connection.php';
-// include_once 'auth.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -17,9 +15,6 @@ if (isset($_GET['id'])) {
 } else {
     Utility::setFlashMessage('error_message','Bad Request Found!');
     Utility::getFlashMessage('error_message');
-    // $_SESSION['message'] = "Bad Request found!";
-    // header("Location:index.php?controller=auth&action=displayUser");
-    // exit;
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +24,6 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Waste Management System - Update Page</title>
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -168,31 +162,3 @@ if (isset($_GET['id'])) {
 
 </body>
 </html>
-
-
-
-
-
-<!-- ------------------------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Waste Management System - Update Page</title>
-</head>
-<body>
-
-    <h1>Udpate Page</h1>
-    <form action="index.php?controller=auth&action=updateUserPost&id=<?=$row['id'];?>" method="post">
-        <label for="name">Name : </label><input type="text" name="name" id="name" value="<?= $row['name'];?>"><br/><br/>
-        <label for="email">Email : </label><input type="email" name="email" id="email" value= "<?= $row['email']; ?>"><br/><br/>
-        <label for="role">Role : </label>
-        <select name="role" id="role">
-            <option value="donor" <?= ($row['role'] === 'donor') ? 'selected' : ''; ?> >Donor</option>
-            <option value="receiver" <?=($row['role'] === 'receiver' ) ? 'selected' : ''; ?> >Receiver</option>
-        </select><br/><br/>
-        <input type="submit" value="Update" name="Update">
-    </form>
-</body>
-</html> -->
