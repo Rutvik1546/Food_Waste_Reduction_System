@@ -16,24 +16,15 @@ if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['ResetPassword'])) {
         $password_sql = $conn->prepare("UPDATE users set password=? where id=?");
         $password_sql->bind_param("si",$hashed_new_password,$id);
         if($password_sql->execute()){
-            // $_SESSION['message'] = "Password Updated successfully!";
             Utility::setFlashMessage("success_message",'Password Updated successfully!');
             Utility::getFlashMessage('success_message','index.php?controller=auth&action=login');
-            // header("Location:index.php?controller=auth&action=login");
-            // exit;
         } else {
-            // $_SESSION['message'] = "Failed to update password!";
             Utility::setFlashMessage('error_message','Failed to update Password!');
             Utility::getFlashMessage('error_message');
-            // header("Location:index.php?controller=auth&action=reset");
-            // exit;
         }
     } else {
         Utility::setFlashMessage('error_message','Password and Confirm password do not match!');
         Utility::getFlashMessage('error_message');
-        // $_SESSION['message'] = "Password and Confirm password do not match!";
-        // header("Location:resetPassword.php");
-        // exit;
     }
 }
 ?>
@@ -66,9 +57,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['ResetPassword'])) {
         border-radius: 12px;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         width : 100%;
-        max-width : 440px;
-        /* text-align: center; */
-        
+        max-width : 440px;        
     }
     h1 {
         color: #333;
@@ -125,3 +114,4 @@ if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['ResetPassword'])) {
     </form>
 </body>
 </html>
+
