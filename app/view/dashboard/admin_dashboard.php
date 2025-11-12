@@ -12,7 +12,6 @@ $_SESSION['name'] = "Admin";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Waste Reduction System - Admin Dashboard</title>
     <style>
-        /* General reset */
         * {
             margin: 0;
             padding: 0;
@@ -86,7 +85,6 @@ $_SESSION['name'] = "Admin";
             }
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
             .container {
                 padding: 25px 20px;
@@ -110,23 +108,3 @@ $_SESSION['name'] = "Admin";
     </div>
 </body>
 </html>
-
-
-<!-- ------------------------------------------------------------------ -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Waste Reduction System - Admin Dashboard</title>
-</head>
-<body>
-    <h1>Welcome Admin!</h1>
-    <p>Here you can manage all food donations and users.</p>
-    <a href="index.php?controller=auth&action=displayUser">Manage User</a>
-    <a href="index.php?controller=item&action=displayDonate">View All Food Items</a><br><br/>
-    
-    <a href="index.php?controller=auth&action=logout">Logout</a>
-    
-</body>
-</html> -->
