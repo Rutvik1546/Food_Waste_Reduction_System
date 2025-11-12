@@ -1,20 +1,12 @@
 <?php
 require_once __DIR__ . '/../../../core/Connection.php';
 
-// Prevent access without login
-// if (!isset($_SESSION['role']) || !isset($_SESSION['email'])) {
-//     $_SESSION['message'] = "Please login first!";
-//     header("Location: index.php?controller=auth&action=login");
-//     exit;
-// }
-
 $db = new Connection();
 $conn = $db->getConnection();
 $name = $_SESSION['name'] ?? 'None';
 $email = $_SESSION['email'] ?? 'None';
 $role = $_SESSION['role'];
 
-// ✅ Corrected search queries
 if (!empty($_GET['search'])) {
     $search = "%" . $_GET['search'] . "%";
 
@@ -178,3 +170,4 @@ $result = $sql->get_result();
 <?php } ?>
 </body>
 </html>
+
