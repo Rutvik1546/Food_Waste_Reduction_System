@@ -10,14 +10,9 @@ $sql->bind_param("i",$id);
 if($sql->execute()) {
     Utility::setFlashMessage('success_message','Data deleted successfully!');
     Utility::getFlashMessage('success_message','index.php?controller=auth&action=displayUser');
-    // $_SESSION['message'] = "Data deleted successfully!";
-    // header("Location:index.php?controller=auth&action=displayUser");
-    // exit;
 } else {
     Utility::setFlashMessage('error_message','Failed to delete data!');
     Utility::getFlashMessage('error_message');
-    // $_SESSION['message'] = "Failed to delete data!";
-    // header("Location:index.php?controller=auth&action=displayUser");
-    // exit;
 }
+
 ?>
